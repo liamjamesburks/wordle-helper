@@ -14,7 +14,6 @@ import './App.css';
 function App() {
     const [ wordList, setWordList ] = useState(wordListJson['words']);
     const [ wordListUnused, setWordListUnused ] = useState(wordListJson['words']);
-
     const alphabetState = useSelector(selectAlphabetState).alphabetState;
 
     const filterWordListUnused = () => {
