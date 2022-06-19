@@ -24,30 +24,10 @@
 
         padding: 1rem;
 
-        max-height: 40rem;
         width: 100%;
 
-        margin: 0;
-
-        overflow: scroll;
+        overflow-y: visible;
     }
-}
-
-.generic-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-
-    background-color: var(--card-background);
-    border-radius: var(--radius);
-    border: 2px solid var(--card-border);
-    padding: 1rem;
-    width: 100%;
-
-    margin: 0 0 2rem 0;
 }
 
 .alphabet-group-title {
@@ -74,16 +54,22 @@
     padding: 1.5rem 2rem 1.5rem 1rem;
 }
 
-.letter {
-    font-size: 0.8rem;
-    text-align: center;
+@media only screen and (min-width: 800px) {
+    .letter {
+        font-size: 0.8rem;
+        text-align: center;
 
-    min-width: 6rem;
+        min-width: 6rem;
+    }
 }
 
-.bold {
-    font-size: 1.1rem;
-    font-weight: bold;
+@media only screen and (max-width: 800px) {
+    .letter {
+        font-size: 0.8rem;
+        text-align: center;
+
+        min-width: 2rem;
+    }
 }
 
 .index-display {

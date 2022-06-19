@@ -11,32 +11,36 @@
     margin-top: 2rem;
 }
 
-.btn-go {
+.action-button {
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
     font-size: 1.2rem;
+
+    align-self: center;
+    justify-self: center;
 
     color: var(--foreground);
     background-color: var(--card-background);
     border: 2px solid var(--card-border);
     border-radius: 12px;
-    margin-left: 2rem;
+
+    min-width: 6rem;
 
     padding: 1rem;
 
+    transform: scale(1);
+    transition: 0.1s;
 }
 
-.btn-go:hover {
+.action-button:hover {
     background-color: var(--card-background-hover);
+
+    transform: scale(1.1);
+    transition: 0.1s;
 }
 
-.btn-go:disabled {
+.action-button:disabled {
     background-color: #201f38;
-}
-
-
-.flex {
-    display: flex;
 }
 
 .btn-container {
