@@ -1,8 +1,8 @@
 .word-input-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    display: flex;
+
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     height: 100%;
     width: 100%;
     max-width: 40rem;
