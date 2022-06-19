@@ -94,7 +94,7 @@ const WordInput = () => {
     const handleLetterChange = (event) => {
         const newLetters = {};
         Object.assign(newLetters, letters);
-        newLetters[event.target.id]['letter'] = event.target.value;
+        newLetters[event.target.id]['letter'] = event.target.value.toLowerCase();
         setLetters(newLetters);
     }
 
