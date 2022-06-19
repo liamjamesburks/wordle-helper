@@ -1,0 +1,26 @@
+.word-list-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    max-height: 30rem;
+    width: 100%;
+
+    overflow: scroll;
+}
+
+.further-instructions {
+    text-align: center;
+    font-size: 16px;
+    padding: 1rem;
+}
+
+.word-option {
+    margin: 1rem;
+    padding: 1rem;
+
+    text-align: center;
+
+    border: 2px solid var(--foreground);
+    border-radius: 12px;
+    background-color: var(--card-background);
+}

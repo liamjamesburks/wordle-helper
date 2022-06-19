@@ -1,0 +1,84 @@
+.alphabet-group-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    padding: 1rem;
+
+    max-height: 40rem;
+    width: 100%;
+
+    margin: 0;
+
+    overflow: scroll;
+}
+
+.generic-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background-color: var(--card-background);
+    border-radius: var(--radius);
+    border: 2px solid var(--card-border);
+    padding: 1rem;
+    width: 100%;
+
+    margin: 0 0 2rem 0;
+}
+
+.alphabet-group-title {
+    text-align: center;
+    font-size: 1.4rem;
+
+    margin: 1rem 0;
+}
+
+.letter-state-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 100%;
+    max-width: 30rem;
+
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+
+    padding: 1.5rem 2rem 1.5rem 1rem;
+}
+
+.letter {
+    font-size: 0.8rem;
+    text-align: center;
+
+    min-width: 6rem;
+}
+
+.bold {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.index-display {
+    width: 1rem;
+    height: 1rem;
+
+    background-color: var(--card-background);
+    border: 1px solid var(--foreground);
+    border-radius: var(--radius);
+}
+
+.exact {
+    background-color: green;
+}
+
+.unknown {
+    background-color: orange;
+}
+
+.invalid {
+    background-color: black;
+}

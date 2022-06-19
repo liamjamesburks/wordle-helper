@@ -1,8 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import alphabetStateReducer from '../features/alphabet-state/alphabetStateSlice';
+import guessHistoryReducer from '../features/guess-history/guessHistorySlice';
+
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    alphabetState: alphabetStateReducer,
+    guessHistory: guessHistoryReducer
   },
 });

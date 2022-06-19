@@ -1,39 +1,138 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+
+:root {
+  --background: #1a237e;
+  --foreground: #f8fdff;
+
+  --card-border: #c5cae9;
+  --card-background: #000051;
+  --card-background-hover: #3b3383;
+
+  --green-hover: #aed581;
+  --red-hover: #e57373;
+  --amber-hover: #ffd54f;
+
+  --green: #2e7d32;
+  --red: #c62828;
+  --amber: #ff8f00;
+
+  --radius: 12px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+p {
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
-  }
+body {
+  overflow-x: hidden;
 }
 
-.App-header {
-  min-height: 100vh;
+* {
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+
+  margin: 0;
+  padding: 0;
+}
+
+*::-webkit-scrollbar {
+  width: 0.75rem;
+  background-color: var(--card-background);
+}
+
+*::-webkit-scrollbar-corner {
+  background-color: var(--card-background);
+}
+
+*::-webkit-scrollbar-track {
+  /*box-shadow: inset 0 0 6px var(--card-border);*/
+  /*border: 1px solid var(--card-border);*/
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--card-background);
+  border: 1px solid var(--card-border);
+  /*outline: 1px solid slategrey;*/
+}
+
+.app-content {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-around;
+  align-items: start;
+
+  background-color: var(--background);
+  color: var(--foreground);
+  margin-top: 2rem;
+}
+
+@media only screen and (min-width: 1480px) {
+  .app-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+
+    background-color: var(--background);
+    color: var(--foreground);
+    margin-top: 2rem;
+  }
+
+  .app-column {
+    display: block;
+
+    width: 100%;
+    margin: 0 2rem;
+  }
+}
+
+@media only screen and (max-width: 1480px) {
+  .app-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--background);
+    color: var(--foreground);
+    margin-top: 2rem;
+  }
+
+  .app-column {
+    display: block;
+
+    width: 100%;
+  }
+}
+
+.centred {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
 }
 
-.App-link {
-  color: rgb(112, 76, 182);
+.app {
+  min-height: 100vh;
+  min-width: 100vw;
+
+  background-color: var(--background);
+  padding: 2rem;
 }
 
-@keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+.app-segment {
+}
+
+.app-title {
+  font-size: 3rem;
+  font-stretch: ultra-expanded;
+
+  padding: 2rem 0;
+  margin: 0 0 0 0;
+  width: 100%;
+
+  text-align: center;
+  color: var(--foreground);
+}
+
+.m-4 {
+  margin-bottom: 2rem;
 }

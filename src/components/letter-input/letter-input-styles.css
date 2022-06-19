@@ -1,0 +1,71 @@
+.letter-input-group-container {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.letter-input-container {
+    height: 3rem;
+    width: 3rem;
+
+    font-size: 1.2rem;
+
+    color: var(--foreground);
+    background-color: var(--card-background);
+    border: 2px solid var(--card-border);
+    border-radius: var(--radius);
+    margin-bottom: 1rem;
+
+    transform: scale(1);
+    transition-duration: 0.1s;
+
+    text-align: center;
+}
+
+.letter-input-container:hover {
+    background-color: var(--card-background-hover);
+    box-shadow: 1px 1px 2px 0px var(--card-border);
+
+    transform: scale(1.2);
+    transition-duration: 0.1s;
+}
+
+.validity-button {
+    border-radius: 100%;
+    border: 1px solid var(--card-border);
+    width: 1rem;
+    height: 1rem;
+    cursor: pointer;
+}
+
+.green {
+    background-color: var(--green);
+}
+.bg-green {
+    background-color: var(--green);
+}
+.green:hover {
+    background-color: var(--green-hover);
+}
+
+.orange {
+    background-color: var(--amber);
+}
+.bg-orange {
+    background-color: var(--amber);
+}
+.orange:hover {
+    background-color: var(--amber-hover);
+}
+
+.red {
+    background-color: var(--red);
+}
+.bg-red {
+    background-color: var(--red);
+}
+.red:hover {
+    background-color: var(--red-hover);
+}
