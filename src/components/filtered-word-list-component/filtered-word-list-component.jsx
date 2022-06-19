@@ -17,7 +17,7 @@ const FilteredWordList = (props) => {
                         {
                             filteredList.map((word) => {
                                 return (
-                                    <p className="word-option" key={word}>{word}</p>
+                                    <p className="word-option word-col" key={word}>{word}</p>
                                 )
                             })
                         }
