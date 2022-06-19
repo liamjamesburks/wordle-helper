@@ -18,37 +18,40 @@ export const AlphabetState = () => {
                 <div className="alphabet-group-container">
                     {
                         Object.keys(alphabetState).map((key) => {
-                            if (alphabetState[key].state !== "invalid") {
-                                return (
-                                    <div key={key} className="letter-state-container">
-                                        <div>
-                                            <p className="letter bold"> {key} </p>
-                                        </div>
-
-                                        <div>
-                                            <p className="letter"> {alphabetState[key]['state']} </p>
-                                        </div>
-
-                                        { letterGrid.map((index) => {
-                                            if (index in alphabetState[key]['possibleIndices'] && alphabetState[key]['state'] === "valid") {
-                                                return (
-                                                    <p key={`${key}-index-${index}`} className={alphabetState[key]['possibleIndices'][index] ? 'index-display exact' : 'index-display unknown'}></p>
-                                                )
-                                            } else if (alphabetState[key]['state'] === "unknown") {
-                                                return (
-                                                    <p key={`${key}-index-${index}`} className={`index-display`}> </p>
-                                                )
-                                            }
-                                            else {
-                                                return (
-                                                    <p key={`${key}-index-${index}`} className={`index-display invalid`}> </p>
-                                                )
-                                            }
-                                        })}
-                                    </div>
-                                )
+                            let bg = '';
+                            if (alphabetState[key].state === "invalid") {
+                                bg = 'invalid';
+                            } else if (alphabetState[key].state === "valid") {
+                                bg = 'valid';
                             }
+                            return (
+                                <div key={key} className={`letter-state-container ${bg}`}>
+                                    <div>
+                                        <p className="letter bold"> {key} </p>
+                                    </div>
 
+                                    <div>
+                                        <p className="letter"> {alphabetState[key]['state']} </p>
+                                    </div>
+
+                                    { letterGrid.map((index) => {
+                                        if (index in alphabetState[key]['possibleIndices'] && alphabetState[key]['state'] === "valid") {
+                                            return (
+                                                <p key={`${key}-index-${index}`} className={alphabetState[key]['possibleIndices'][index] ? 'index-display exact' : 'index-display unknown'}></p>
+                                            )
+                                        } else if (alphabetState[key]['state'] === "unknown") {
+                                            return (
+                                                <p key={`${key}-index-${index}`} className={`index-display`}> </p>
+                                            )
+                                        }
+                                        else {
+                                            return (
+                                                <p key={`${key}-index-${index}`} className={`index-display invalid`}> </p>
+                                            )
+                                        }
+                                    })}
+                                </div>
+                            )
                         })
                     }
                 </div>

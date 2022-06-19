@@ -104,5 +104,9 @@
 }
 
 .invalid {
-    background-color: black;
+    background-color: var(--dark-red);
+}
+
+.valid {
+    background-color: var(--dark-green);
 }
