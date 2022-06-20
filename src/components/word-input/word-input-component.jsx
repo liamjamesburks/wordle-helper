@@ -96,6 +96,11 @@ const WordInput = () => {
         Object.assign(newLetters, letters);
         newLetters[event.target.id]['letter'] = event.target.value.toLowerCase();
         setLetters(newLetters);
+
+        if ((event.target.id) !== 4) {
+            const nextInput = Number(event.target.id)+1;
+            document.getElementById(String(nextInput)).focus();
+        }
     }
 
     const handleColourChange = (colourDictionary) => {
