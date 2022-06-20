@@ -47,6 +47,7 @@
 .action-button:disabled {
     background-color: #141328;
     color: #3f3f44;
+    border-color: #3f3f44;
 }
 
 .button-icon {
