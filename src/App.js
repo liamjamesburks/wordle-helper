@@ -10,12 +10,24 @@ import AlphabetState from "./components/alphabet-state-component/alphabet-state-
 import FilteredWordList from "./components/filtered-word-list-component/filtered-word-list-component";
 import GuessHistory from "./components/guess-history-component/guess-history-component";
 
+import { RefreshIcon } from '@heroicons/react/outline';
+
 import './App.css';
+
+const suggestions = [
+    'SLATE',
+    'CRANE',
+    'DEPOT',
+    'TRIED'
+]
 
 function App() {
     const [ wordList, setWordList ] = useState(wordListJson['words']);
     const [ wordListUnused, setWordListUnused ] = useState(wordListJson['words']);
-    const alphabetState = useSelector(selectAlphabetState).alphabetState;
+
+    const store = useSelector(selectAlphabetState);
+    const alphabetState = store.alphabetState;
+    // const guessHistory = store.history;
 
     const filterWordListUnused = () => {
         let filteredWordListUnused = [];
@@ -83,6 +95,10 @@ function App() {
         setWordList(filteredWordList);
     }
 
+    const clearState = () => {
+        document.location.reload();
+    };
+
     useEffect(() => {
         filterWordList();
         filterWordListUnused();
@@ -94,6 +110,9 @@ function App() {
                 <h1 className="app-title">
                     Wordle Helper
                 </h1>
+                <button className="refresh-button" onClick={clearState}>
+                    <RefreshIcon className="refresh-button-icon" />
+                </button>
             </div>
 
             <div className="app-content">
@@ -102,14 +121,23 @@ function App() {
                         <WordInput />
                     </div>
                     <div className="centred">
-                        <FilteredWordList filteredList={wordList} title="Possible Options" subtitle="These words obey all the rules you've provided so far." instructions="Make more guesses to filter the list further down." wordLimit={200}/>
+                        <FilteredWordList
+                            filteredList={wordList}
+                            title="Possible Options"
+                            suggestions={suggestions}
+                            wordLimit={200}
+                        />
                     </div>
                 </div>
 
                 <div className='app-column'>
                     <GuessHistory/>
                     <div className="centred">
-                        <FilteredWordList filteredList={wordListUnused} title="Information Gain" subtitle="These words don't contain any of the letters you've already used." instructions="These may not be correct, but they will provide more information than re-using letters." wordLimit={500}/>
+                        <FilteredWordList
+                            filteredList={wordListUnused}
+                            title="Information Gain"
+                            wordLimit={500}
+                        />
                     </div>
                     <AlphabetState />
                 </div>

@@ -9,6 +9,8 @@ import {
 } from "../../features/guess-history/guessHistorySlice";
 
 import LetterInput from "../letter-input/letter-input-component";
+import { SearchIcon, TrashIcon } from '@heroicons/react/outline';
+
 import './word-input-styles.css';
 
 const WordInput = () => {
@@ -97,7 +99,11 @@ const WordInput = () => {
         newLetters[event.target.id]['letter'] = event.target.value.toLowerCase();
         setLetters(newLetters);
 
-        if ((event.target.id) !== 4) {
+        if (((event.target.value) === "") && ((event.target.id) !== "0")) {
+            const nextInput = Number(event.target.id)-1;
+            document.getElementById(String(nextInput)).focus();
+        }
+        else if ((event.target.id) !== "4" && ((event.target.value) !== "")) {
             const nextInput = Number(event.target.id)+1;
             document.getElementById(String(nextInput)).focus();
         }
@@ -110,10 +116,10 @@ const WordInput = () => {
         newLetters[colourDictionary.position]['colour'] = colourDictionary.colour;
         setLetters(newLetters);
 
-        if ((colourDictionary.position) !== 4) {
-            const nextInput = Number(colourDictionary.position)+1;
-            document.getElementById(String(nextInput)).focus();
-        }
+        // if ((colourDictionary.position) !== 4) {
+        //     const nextInput = Number(colourDictionary.position)+1;
+        //     document.getElementById(String(nextInput)).focus();
+        // }
     }
 
     return (
@@ -126,8 +132,14 @@ const WordInput = () => {
                 <LetterInput key={4} position={4} handleLetterChange={handleLetterChange} handleColourChange={handleColourChange} colour={letters['4']['colour']} value={letters['4']['letter']}/>
             </div>
             <div className='btn-container'>
-                <button className="action-button" disabled={!enabled} onClick={handleGoClick}>Go</button>
-                <button className="action-button" disabled={!enabled} onClick={handleClearClick}>Clear</button>
+                <button className="action-button" disabled={!enabled} onClick={handleGoClick}>
+                    Go
+                    <SearchIcon className="button-icon" />
+                </button>
+                <button className="action-button" onClick={handleClearClick}>
+                    Clear
+                    <TrashIcon className="button-icon" />
+                </button>
             </div>
         </div>
     )

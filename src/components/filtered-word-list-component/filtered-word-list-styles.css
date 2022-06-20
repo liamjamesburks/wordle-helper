@@ -4,6 +4,33 @@
     padding: 1rem;
 }
 
+.total-count-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+    font-size: 0.75rem;
+    font-stretch: ultra-expanded;
+    font-weight: normal;
+
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+
+    padding: 0;
+    margin: 0;
+}
+
+.total-count-icon {
+    width: 1rem;
+    margin-left: 0.5rem;
+
+    align-self: center;
+}
 
 @media only screen and (min-width: 800px) {
     .word-option {
@@ -29,6 +56,11 @@
         width: 100%;
 
         overflow-y: scroll;
+    }
+
+    .total-count-text {
+        top: 2.6rem;
+        right: 2rem;
     }
 }
 
@@ -59,4 +91,34 @@
 
         margin-top: 1rem;
     }
+
+    .total-count-text {
+        max-width: 4rem;
+    }
 }
+
+@media only screen and (max-width: 400px) {
+    .total-count-text {
+        max-width: 3rem;
+        display: flex;
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+    }
+
+    .total-count-icon {
+        width: 1rem;
+        margin: 0;
+        align-self: center;
+    }
+}
+
+@media only screen and (max-width:  1480px) {
+    .total-count-text {
+        top: 2.2rem;
+        right: 1rem;
+    }
+}
+
+
