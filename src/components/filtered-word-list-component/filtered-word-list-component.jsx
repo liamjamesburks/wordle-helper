@@ -20,7 +20,11 @@ const FilteredWordList = (props) => {
                 { title }
             </h2>
             <h4 className="subtitle">
-                { !guessHistory ? 'Enter a word to begin filtering the options.' : ''}
+                { (guessHistory.length === 0) ? 'Enter a word to begin filtering the options' :
+                    (
+                        (filteredList.length > wordLimit) ? "We'll need more guesses to filter the options down to a useful size" : ''
+                    )
+                }
             </h4>
             { filteredList.length <= wordLimit ?
                 (
@@ -36,16 +40,13 @@ const FilteredWordList = (props) => {
                 ) :
                 (
                     <div className='further-instructions'>
-                        { suggestions ? (
+                        {
+                            ((guessHistory.length === 0) && (suggestions)) ? (
                                 "We'll need more guesses to narrow down the options. Why don't you start with one of the following"
-                            )
-                        :
-                            (
-                                guessHistory ? "We'll need more guesses to narrow down the options" : ""
-                            )
+                            ) : ''
                         }
                         {
-                            suggestions ? (
+                            ((guessHistory.length === 0) && (suggestions)) ? (
                                 suggestions.map((suggestion) => {
                                     return (
                                         <p key={suggestion} className="word-option">
@@ -53,9 +54,7 @@ const FilteredWordList = (props) => {
                                         </p>
                                     )
                                 })
-                            ) : (
-                                ''
-                            )
+                            ) : ''
                         }
                     </div>
                 )
