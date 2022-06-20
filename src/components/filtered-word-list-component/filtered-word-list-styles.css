@@ -59,7 +59,7 @@
     }
 
     .total-count-text {
-        top: 2.6rem;
+        top: 2.4rem;
         right: 2rem;
     }
 }
@@ -94,29 +94,30 @@
 
     .total-count-text {
         max-width: 4rem;
+        top: 2.2rem;
+        right: 2rem;
     }
 }
 
 @media only screen and (max-width: 400px) {
     .total-count-text {
-        max-width: 3rem;
         display: flex;
         flex-direction: column;
 
-        justify-content: center;
-        align-items: center;
+        top: 0;
+        right: 0;
     }
 
     .total-count-icon {
-        width: 1rem;
+        width: 0.75rem;
         margin: 0;
-        align-self: center;
+        padding: 0;
     }
 }
 
 @media only screen and (max-width:  1480px) {
     .total-count-text {
-        top: 2.2rem;
+        top: 1.8rem;
         right: 1rem;
     }
 }

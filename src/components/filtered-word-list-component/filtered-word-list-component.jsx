@@ -13,7 +13,7 @@ const FilteredWordList = (props) => {
     return (
         <div className="generic-container">
             <div className="total-count-text">
-                <p>{ filteredList.length }</p>
+                <p className="p-0">{ filteredList.length }</p>
                 <ChartBarIcon className="total-count-icon"/>
             </div>
             <h2 className="alphabet-group-title">
