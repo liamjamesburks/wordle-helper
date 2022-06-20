@@ -1,6 +1,6 @@
 {
   "short_name": "Wordle Helper",
-  "name": "An aid to shamelessly beat your friends at Wordle",
+  "name": "You'll never be bad again",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#f8fdff",
+  "background_color": "#1a237e"
 }
