@@ -1,5 +1,8 @@
 import './letter-input-styles.css';
 import '../../App.css';
+import {useDispatch, useSelector} from "react-redux";
+import {selectWordInput} from "../../features/word-input-state/wordInputStateSlice";
+import { useEffect } from "react";
 
 
 const LetterInput = (props) => {
@@ -13,7 +16,7 @@ const LetterInput = (props) => {
 
     return (
         <div className="letter-input-group-container">
-            <input id={props.position} className={`letter-input-container bg-${props.colour}`} value={props.letter} type="text" maxLength={1} onChange={props.handleLetterChange} required autoComplete="off"/>
+            <input id={props.position} className={`letter-input-container bg-${props.colour}`} type="text" maxLength={1} onChange={props.handleLetterChange} required autoComplete="off"/>
             <button type="button" id="green" className="validity-button bg-green hover-bg-green" onClick={handleColourChange}>
             </button>
 

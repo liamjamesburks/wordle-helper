@@ -122,4 +122,8 @@
     }
 }
 
+.hover-indigo:hover {
+    background-color: var(--card-background-hover);
+    cursor: pointer;
+}
 

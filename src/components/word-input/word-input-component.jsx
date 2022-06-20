@@ -1,12 +1,18 @@
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 import {
-    changeLetterState
+    changeLetterState, selectAlphabetState
 } from "../../features/alphabet-state/alphabetStateSlice";
 import {
     addGuess
 } from "../../features/guess-history/guessHistorySlice";
+import {
+    changeLetter,
+    changeColour,
+    resetState,
+    selectWordInput
+} from "../../features/word-input-state/wordInputStateSlice";
 
 import LetterInput from "../letter-input/letter-input-component";
 import { SearchIcon, TrashIcon } from '@heroicons/react/outline';
@@ -15,38 +21,32 @@ import './word-input-styles.css';
 
 const WordInput = () => {
     const dispatch = useDispatch();
+    const wordInputState = useSelector(selectWordInput).wordInput.input;
 
-    const [letters, setLetters] = useState({
-        '0': { 'letter': '', 'colour': null },
-        '1': { 'letter': '', 'colour': null },
-        '2': { 'letter': '', 'colour': null },
-        '3': { 'letter': '', 'colour': null },
-        '4': { 'letter': '', 'colour': null },
-    });
     const [enabled, setEnabled] = useState(false);
 
     useEffect(() => {
         let checkValid = true;
-        Object.keys(letters).forEach((key) => {
-            if (!letters[key]['letter'] || !letters[key]['colour']) {
+        Object.keys(wordInputState).forEach((key) => {
+            if (!wordInputState[key]['letter'] || !wordInputState[key]['colour']) {
                 checkValid = false;
             }
         })
 
         setEnabled(checkValid);
-    }, [letters])
+    }, [wordInputState])
 
     const handleGoClick = () => {
         let newGuess='';
-        Object.keys(letters).forEach((key) => {
-            newGuess += String(letters[key]['letter']);
+        Object.keys(wordInputState).forEach((key) => {
+            newGuess += String(wordInputState[key]['letter']);
         })
         dispatch(addGuess(newGuess));
 
-        Object.keys(letters).forEach((key) => {
+        Object.keys(wordInputState).forEach((key) => {
             const index = key;
-            const character = letters[key].letter;
-            const colour = letters[key].colour;
+            const character = wordInputState[key].letter;
+            const colour = wordInputState[key].colour;
 
             let validLetter;
             let validPosition;
@@ -75,29 +75,24 @@ const WordInput = () => {
     }
 
     const handleClearClick = () => {
-        let initialState = {
-            '0': { 'letter': '', 'colour': null },
-            '1': { 'letter': '', 'colour': null },
-            '2': { 'letter': '', 'colour': null },
-            '3': { 'letter': '', 'colour': null },
-            '4': { 'letter': '', 'colour': null },
-        }
-        setLetters(initialState);
+        dispatch(resetState());
 
         document.getElementById('0').value = '';
         document.getElementById('1').value = '';
         document.getElementById('2').value = '';
         document.getElementById('3').value = '';
         document.getElementById('4').value = '';
-
-        document.getElementById('0').focus();
     }
 
     const handleLetterChange = (event) => {
-        const newLetters = {};
-        Object.assign(newLetters, letters);
-        newLetters[event.target.id]['letter'] = event.target.value.toLowerCase();
-        setLetters(newLetters);
+        dispatch(
+            changeLetter(
+                {
+                    'position': event.target.id,
+                    'letter': event.target.value.toLowerCase()
+                }
+            )
+        )
 
         if (((event.target.value) === "") && ((event.target.id) !== "0")) {
             const nextInput = Number(event.target.id)-1;
@@ -110,26 +105,24 @@ const WordInput = () => {
     }
 
     const handleColourChange = (colourDictionary) => {
-        const newLetters = {};
-        Object.assign(newLetters, letters);
-
-        newLetters[colourDictionary.position]['colour'] = colourDictionary.colour;
-        setLetters(newLetters);
-
-        // if ((colourDictionary.position) !== 4) {
-        //     const nextInput = Number(colourDictionary.position)+1;
-        //     document.getElementById(String(nextInput)).focus();
-        // }
+        dispatch(
+            changeColour(
+                {
+                    'position': colourDictionary.position,
+                    'colour': colourDictionary.colour
+                }
+            )
+        )
     }
 
     return (
         <div className="generic-container">
             <div className='word-input-container'>
-                <LetterInput key={0} position={0} handleLetterChange={handleLetterChange} handleColourChange={handleColourChange} colour={letters['0']['colour']} value={letters['0']['letter']}/>
-                <LetterInput key={1} position={1} handleLetterChange={handleLetterChange} handleColourChange={handleColourChange} colour={letters['1']['colour']} value={letters['1']['letter']}/>
-                <LetterInput key={2} position={2} handleLetterChange={handleLetterChange} handleColourChange={handleColourChange} colour={letters['2']['colour']} value={letters['2']['letter']}/>
-                <LetterInput key={3} position={3} handleLetterChange={handleLetterChange} handleColourChange={handleColourChange} colour={letters['3']['colour']} value={letters['3']['letter']}/>
-                <LetterInput key={4} position={4} handleLetterChange={handleLetterChange} handleColourChange={handleColourChange} colour={letters['4']['colour']} value={letters['4']['letter']}/>
+                <LetterInput key={0} position={0} handleLetterChange={handleLetterChange} handleColourChange={handleColourChange} colour={wordInputState['0']['colour']} />
+                <LetterInput key={1} position={1} handleLetterChange={handleLetterChange} handleColourChange={handleColourChange} colour={wordInputState['1']['colour']} />
+                <LetterInput key={2} position={2} handleLetterChange={handleLetterChange} handleColourChange={handleColourChange} colour={wordInputState['2']['colour']} />
+                <LetterInput key={3} position={3} handleLetterChange={handleLetterChange} handleColourChange={handleColourChange} colour={wordInputState['3']['colour']} />
+                <LetterInput key={4} position={4} handleLetterChange={handleLetterChange} handleColourChange={handleColourChange} colour={wordInputState['4']['colour']} />
             </div>
             <div className='btn-container'>
                 <button className="action-button" disabled={!enabled} onClick={handleGoClick}>

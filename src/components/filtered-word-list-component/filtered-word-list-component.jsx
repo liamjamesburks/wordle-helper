@@ -3,9 +3,12 @@ import {useSelector} from "react-redux";
 import {selectAlphabetState} from "../../features/alphabet-state/alphabetStateSlice";
 
 import { ChartBarIcon } from "@heroicons/react/outline";
+import {useEffect} from "react";
 
 const FilteredWordList = (props) => {
-    const { filteredList, title, wordLimit, suggestions } = props;
+    const { filteredList, title, wordLimit, suggestions, handleSuggestionClick } = props;
+
+    console.log(filteredList);
 
     const store = useSelector(selectAlphabetState);
     const guessHistory = store.guessHistory.history;
@@ -32,7 +35,7 @@ const FilteredWordList = (props) => {
                         {
                             filteredList.map((word) => {
                                 return (
-                                    <p className="word-option word-col" key={word}>{word}</p>
+                                    <p className="word-option word-col hover-indigo" onClick={handleSuggestionClick} key={word}>{word}</p>
                                 )
                             })
                         }
@@ -49,7 +52,7 @@ const FilteredWordList = (props) => {
                             ((guessHistory.length === 0) && (suggestions)) ? (
                                 suggestions.map((suggestion) => {
                                     return (
-                                        <p key={suggestion} className="word-option">
+                                        <p key={suggestion} className="word-option hover-indigo" onClick={handleSuggestionClick}>
                                             {suggestion}
                                         </p>
                                     )

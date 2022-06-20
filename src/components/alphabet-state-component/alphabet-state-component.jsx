@@ -6,7 +6,7 @@ import './alphabet-state-styles.css';
 const letterGrid = [0, 1, 2, 3, 4];
 
 export const AlphabetState = () => {
-    const alphabetState = useSelector(selectAlphabetState).alphabetState;
+    const alphabetState = useSelector(selectAlphabetState).alphabetState.alphabetState;
 
     return (
         <div>

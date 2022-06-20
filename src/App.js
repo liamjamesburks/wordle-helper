@@ -1,8 +1,11 @@
 import React from 'react';
 import { wordListJson } from "./resources/word-list-json";
 
-import { useSelector } from "react-redux";
-import { selectAlphabetState } from "./features/alphabet-state/alphabetStateSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { selectAlphabetState, resetAlphabetState } from "./features/alphabet-state/alphabetStateSlice";
+import { resetHistoryState } from "./features/guess-history/guessHistorySlice";
+import { resetState } from "./features/word-input-state/wordInputStateSlice";
+import { changeLetter } from "./features/word-input-state/wordInputStateSlice";
 import { useState, useEffect } from "react";
 
 import WordInput from "./components/word-input/word-input-component";
@@ -22,12 +25,29 @@ const suggestions = [
 ]
 
 function App() {
+    const dispatch = useDispatch();
+
     const [ wordList, setWordList ] = useState(wordListJson['words']);
     const [ wordListUnused, setWordListUnused ] = useState(wordListJson['words']);
 
     const store = useSelector(selectAlphabetState);
-    const alphabetState = store.alphabetState;
-    // const guessHistory = store.history;
+    const alphabetState = store.alphabetState.alphabetState;
+
+    const handleSuggestionClick = (event) => {
+        const suggestion = event.target.textContent;
+
+        dispatch(changeLetter({'position': '0', 'letter': suggestion[0].toLowerCase()}))
+        dispatch(changeLetter({'position': '1', 'letter': suggestion[1].toLowerCase()}))
+        dispatch(changeLetter({'position': '2', 'letter': suggestion[2].toLowerCase()}))
+        dispatch(changeLetter({'position': '3', 'letter': suggestion[3].toLowerCase()}))
+        dispatch(changeLetter({'position': '4', 'letter': suggestion[4].toLowerCase()}))
+
+        document.getElementById('0').value = suggestion[0];
+        document.getElementById('1').value = suggestion[1];
+        document.getElementById('2').value = suggestion[2];
+        document.getElementById('3').value = suggestion[3];
+        document.getElementById('4').value = suggestion[4];
+    }
 
     const filterWordListUnused = () => {
         let filteredWordListUnused = [];
@@ -47,7 +67,6 @@ function App() {
                 filteredWordListUnused.push(currentWord);
             }
         }
-
         setWordListUnused(filteredWordListUnused);
     }
 
@@ -96,7 +115,18 @@ function App() {
     }
 
     const clearState = () => {
-        document.location.reload();
+        dispatch(resetState());
+        dispatch(resetHistoryState());
+        dispatch(resetAlphabetState());
+
+        document.getElementById('0').value = '';
+        document.getElementById('1').value = '';
+        document.getElementById('2').value = '';
+        document.getElementById('3').value = '';
+        document.getElementById('4').value = '';
+
+        setWordList(wordListJson['words']);
+        setWordListUnused(wordListJson['words']);
     };
 
     useEffect(() => {
@@ -125,6 +155,7 @@ function App() {
                             filteredList={wordList}
                             title="Possible Options"
                             suggestions={suggestions}
+                            handleSuggestionClick={handleSuggestionClick}
                             wordLimit={200}
                         />
                     </div>
@@ -136,6 +167,7 @@ function App() {
                         <FilteredWordList
                             filteredList={wordListUnused}
                             title="Information Gain"
+                            handleSuggestionClick={handleSuggestionClick}
                             wordLimit={500}
                         />
                     </div>
