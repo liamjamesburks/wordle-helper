@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import {
     changeLetterState
@@ -94,7 +94,7 @@ const WordInput = () => {
     const handleLetterChange = (event) => {
         const newLetters = {};
         Object.assign(newLetters, letters);
-        newLetters[event.target.id]['letter'] = event.target.value;
+        newLetters[event.target.id]['letter'] = event.target.value.toLowerCase();
         setLetters(newLetters);
     }
 
@@ -121,8 +121,8 @@ const WordInput = () => {
                 <LetterInput key={4} position={4} handleLetterChange={handleLetterChange} handleColourChange={handleColourChange} colour={letters['4']['colour']} value={letters['4']['letter']}/>
             </div>
             <div className='btn-container'>
-                <button className="btn-go" disabled={!enabled} onClick={handleGoClick}>Go</button>
-                <button className="btn-go" disabled={!enabled} onClick={handleClearClick}>Clear</button>
+                <button className="action-button" disabled={!enabled} onClick={handleGoClick}>Go</button>
+                <button className="action-button" disabled={!enabled} onClick={handleClearClick}>Clear</button>
             </div>
         </div>
     )

@@ -1,9 +1,10 @@
 import React from 'react';
-import {useSelector} from "react-redux";
-import {selectAlphabetState} from "./features/alphabet-state/alphabetStateSlice";
+import { wordListJson } from "./resources/word-list-json";
+
+import { useSelector } from "react-redux";
+import { selectAlphabetState } from "./features/alphabet-state/alphabetStateSlice";
 import { useState, useEffect } from "react";
 
-import { wordListJson } from "./resources/word-list-json";
 import WordInput from "./components/word-input/word-input-component";
 import AlphabetState from "./components/alphabet-state-component/alphabet-state-component";
 import FilteredWordList from "./components/filtered-word-list-component/filtered-word-list-component";
@@ -100,15 +101,15 @@ function App() {
                     <div className="centred">
                         <WordInput />
                     </div>
-                    <GuessHistory/>
                     <div className="centred">
-                        <FilteredWordList filteredList={wordListUnused} title="Information Gain" subtitle="These words don't contain any of the letters you've already used." instructions="These may not be correct, but they will provide more information than re-using letters." wordLimit={500}/>
+                        <FilteredWordList filteredList={wordList} title="Possible Options" subtitle="These words obey all the rules you've provided so far." instructions="Make more guesses to filter the list further down." wordLimit={200}/>
                     </div>
                 </div>
 
                 <div className='app-column'>
+                    <GuessHistory/>
                     <div className="centred">
-                        <FilteredWordList filteredList={wordList} title="Possible Options" subtitle="These words obey all the rules you've provided so far." instructions="Make more guesses to filter the list further down." wordLimit={200}/>
+                        <FilteredWordList filteredList={wordListUnused} title="Information Gain" subtitle="These words don't contain any of the letters you've already used." instructions="These may not be correct, but they will provide more information than re-using letters." wordLimit={500}/>
                     </div>
                     <AlphabetState />
                 </div>

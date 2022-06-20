@@ -16,20 +16,11 @@
   --red: #c62828;
   --amber: #ff8f00;
 
-  --dark-green: #135916;
-  --dark-red: #7c1010;
-  --dark-amber: #915000;
+  --dark-green: #0a480d;
+  --dark-red: #6b0f0f;
+  --dark-amber: #734000;
 
   --radius: 12px;
-}
-
-p {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  overflow-x: hidden;
 }
 
 * {
@@ -38,6 +29,15 @@ body {
 
   margin: 0;
   padding: 0;
+}
+
+p, h1, h2, h3, h4 {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 *::-webkit-scrollbar {
@@ -49,25 +49,9 @@ body {
   background-color: var(--card-background);
 }
 
-*::-webkit-scrollbar-track {
-  /*box-shadow: inset 0 0 6px var(--card-border);*/
-  /*border: 1px solid var(--card-border);*/
-}
-
 *::-webkit-scrollbar-thumb {
   background-color: var(--card-background);
   border: 1px solid var(--card-border);
-  /*outline: 1px solid slategrey;*/
-}
-
-.app-content {
-  display: flex;
-  justify-content: space-around;
-  align-items: start;
-
-  background-color: var(--background);
-  color: var(--foreground);
-  margin-top: 2rem;
 }
 
 @media only screen and (min-width: 1480px) {
@@ -86,6 +70,31 @@ body {
 
     width: 100%;
     margin: 0 2rem;
+  }
+
+  .app {
+    min-height: 100vh;
+    min-width: 100vw;
+
+    background-color: var(--background);
+    padding: 2rem;
+  }
+
+  .generic-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background-color: var(--card-background);
+    border-radius: var(--radius);
+    border: 2px solid var(--card-border);
+    padding: 1rem;
+    width: 100%;
+
+    margin: 0 0 2rem 0;
   }
 }
 
@@ -106,23 +115,31 @@ body {
 
     width: 100%;
   }
-}
 
-.centred {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  .app {
+    min-height: 100vh;
+    min-width: 100vw;
 
-.app {
-  min-height: 100vh;
-  min-width: 100vw;
+    background-color: var(--background);
+    padding: 0.2rem;
+  }
 
-  background-color: var(--background);
-  padding: 2rem;
-}
+  .generic-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-.app-segment {
+    text-align: center;
+
+    background-color: var(--card-background);
+    border-radius: var(--radius);
+    border: 2px solid var(--card-border);
+    padding: 0.5rem;
+    width: 100%;
+
+    margin: 0 0 1rem 0;
+  }
 }
 
 .app-title {
@@ -130,7 +147,7 @@ body {
   font-stretch: ultra-expanded;
 
   padding: 2rem 0;
-  margin: 0 0 0 0;
+  margin: 0;
   width: 100%;
 
   text-align: center;
@@ -139,4 +156,41 @@ body {
 
 .m-4 {
   margin-bottom: 2rem;
+}
+
+.bold {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.centred {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.bg-green {
+  background-color: var(--green);
+}
+.hover-bg-green:hover {
+  background-color: var(--green-hover);
+}
+
+.bg-orange {
+  background-color: var(--amber);
+}
+.hover-bg-orange:hover {
+  background-color: var(--amber-hover);
+}
+
+.bg-red {
+  background-color: var(--red);
+}
+.hover-bg-red:hover {
+  background-color: var(--red-hover);
 }
