@@ -57,6 +57,17 @@
     max-height: 100%;
 }
 
+@media only screen and (max-width: 400px) {
+    .hidden-small {
+        display: none;
+    }
+
+    .button-icon {
+        margin-left: 0rem;
+        width: 2rem;
+    }
+}
+
 .btn-container {
     display: flex;
     justify-content: space-evenly;

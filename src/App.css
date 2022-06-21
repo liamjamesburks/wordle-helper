@@ -139,7 +139,7 @@ body {
 
     background-color: var(--background);
     color: var(--foreground);
-    margin-top: 2rem;
+    margin-top: 0rem;
   }
 
   .app-column {
@@ -203,6 +203,8 @@ body {
   height: 100%;
   width: 1.5rem;
   max-height: 100%;
+
+  margin: 0.4rem;
 }
 
 .app-title {
@@ -214,6 +216,14 @@ body {
 
   text-align: center;
   color: var(--foreground);
+}
+
+@media only screen and (max-width: 800px) {
+  .app-title {
+    font-size: 2.5rem;
+    padding: 1rem 2rem;
+    margin: 0;
+  }
 }
 
 .m-4 {

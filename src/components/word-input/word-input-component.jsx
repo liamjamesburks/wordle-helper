@@ -126,11 +126,11 @@ const WordInput = () => {
             </div>
             <div className='btn-container'>
                 <button className="action-button" disabled={!enabled} onClick={handleGoClick}>
-                    Go
+                    <p className="hidden-small">Go</p>
                     <SearchIcon className="button-icon" />
                 </button>
                 <button className="action-button" onClick={handleClearClick}>
-                    Clear
+                    <p className="hidden-small">Clear</p>
                     <TrashIcon className="button-icon" />
                 </button>
             </div>

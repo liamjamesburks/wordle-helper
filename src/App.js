@@ -136,7 +136,7 @@ function App() {
 
     return (
         <div className="app">
-            <div className="generic-container m-4">
+            <div className="generic-container">
                 <h1 className="app-title">
                     Wordle Helper
                 </h1>
