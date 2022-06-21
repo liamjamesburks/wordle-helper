@@ -23,7 +23,12 @@ const FilteredWordList = (props) => {
                 { title }
             </h2>
             <h4 className="subtitle">
-                { (guessHistory.length === 0) ? 'Enter a word to begin filtering the options' :
+                { (guessHistory.length === 0)
+                    ?
+                        (
+                            'Enter a word to begin filtering the options'
+                        )
+                    :
                     (
                         (filteredList.length > wordLimit) ? "We'll need more guesses to filter the options down to a useful size" : ''
                     )
