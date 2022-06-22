@@ -1,11 +1,29 @@
+.grayed-out {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    min-height: 100%;
+
+    left: 0;
+    top: 0;
+
+    background-color: var(--background);
+    z-index: 999;
+    opacity: 95%;
+}
+
 .information-modal {
     position: absolute;
-    opacity: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     z-index: 1000;
+    width: 50%;
 
-    width: 40%;
-
-    max-height: 55rem;
+    top: 5rem;
 
     background-color: var(--card-background);
     color: var(--foreground);
@@ -13,30 +31,22 @@
     border: 2px solid var(--card-border);
     border-radius: var(--radius);
 
-    box-shadow: 0 0 12px 1px var(--card-border);
+    box-shadow: 0 0 3px 1px var(--card-border);
 
     padding: 2rem;
-
-    overflow-y: scroll;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
-
 .information-modal-title {
-    font-size: 2.4rem;
+    font-size: 2.5rem;
     font-stretch: ultra-expanded;
+    font-weight: bold;
 
     margin-bottom: 1rem;
     text-align: center;
 }
-
 .information-modal-step {
     font-size: 1rem;
     width: 74%;
 }
-
 .information-modal-list-decorator {
     margin-right: 2rem;
     font-size: 1.4rem;
@@ -57,7 +67,7 @@
 @media only screen and (max-width: 1480px) and (min-width: 800px) {
     .information-modal {
         padding: 1rem;
-        width: 60%;
+        width: 65%;
     }
 
     .step-divider {
@@ -87,7 +97,7 @@
 @media only screen and (max-width: 800px) {
     .information-modal {
         padding: 1rem;
-        width: 80%;
+        width: 90%;
     }
 
     .step-divider {
@@ -114,26 +124,6 @@
         text-transform: uppercase;
         text-align: center;
     }
-}
-
-
-.grayed-out {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 100%;
-    min-height: 100%;
-
-    left: 0;
-    top: 0;
-
-    background-color: var(--background);
-    z-index: 999;
-    opacity: 90%;
-
-    overflow-y: hidden;
 }
 
 .line {
