@@ -40,7 +40,7 @@
     font-weight: lighter;
     margin-left: 1rem;
 
-    max-height: 1.4rem;
+    max-height: 1.6rem;
 
     color: var(--card-border);
 
@@ -57,7 +57,7 @@
 .footer-item-detail {
     font-weight: lighter;
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
 
     z-index: -100;
     /*font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',*/
@@ -70,7 +70,7 @@
     font-weight: lighter;
     text-align: center;
     color: var(--foreground);
-    font-size: 0.9rem;
+    font-size: 1.1rem;
 
     /*font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',*/
     /*monospace;*/
@@ -83,6 +83,12 @@
 
 .larger {
     font-size: 1.2rem;
+}
+
+.line-bigger {
+    width: 70%;
+    border-bottom: 2px solid var(--foreground);
+    margin: 1.4rem 0;
 }
 
 .lighter {

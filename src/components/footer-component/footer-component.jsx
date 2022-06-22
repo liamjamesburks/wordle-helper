@@ -21,8 +21,8 @@ const Footer = () => {
         }
         
         navigator.clipboard.writeText(url).then(()=>{
-            if (url.indexOf("liamjames") >= 0) {
-                toast("Email Copied to Clipboard",
+            if ((url.indexOf("liamjames") >= 0) || url.indexOf("helper") >= 0) {
+                toast("Link Copied to Clipboard",
                     {
                         position: "bottom-right",
                         autoClose: 2000,
@@ -43,21 +43,22 @@ const Footer = () => {
             <div className="centred">
                 <h6 className="larger lighter"><strong>Copyright &copy;</strong> Liam Burks</h6>
             </div>
-            <span className="line" />
+            <span className="line-bigger" />
 
             <div id="liamjamesburks@gmail.com" className="footer-item-container" onClick={copyToClipboard}>
-                <p id="p#1" className="lighter footer-item-detail link">Email</p>
+                <p id="p#1" className="lighter footer-item-detail link">My Email</p>
                 <DuplicateIcon id="i#1" className="footer-icon"/>
             </div>
-
-            {/*<div id="www.linkedin.com/in/liam-burks-47b2391a0" className="footer-item-container" onClick={copyToClipboard}>*/}
-            {/*    <p id="p#2" className="lighter footer-item-detail link">LinkedIn</p>*/}
-            {/*    <LinkIcon id="i#2" name="www.linkedin.com/in/liam-burks-47b2391a0" className="footer-icon"/>*/}
-            {/*</div>*/}
 
             <div id="https://www.nytimes.com/games/wordle/index.html" className="footer-item-container" onClick={copyToClipboard}>
                 <p id="p#3" className="lighter footer-item-detail link">Wordle</p>
                 <GlobeIcon id="i#3" name="https://www.nytimes.com/games/wordle/index.html" className="footer-icon"/>
+            </div>
+
+            <span className="line" />
+            <div id="https://react-wordle-helper.netlify.app/" className="footer-item-container" onClick={copyToClipboard}>
+                <p id="p#3" className="lighter footer-item-detail link">Share Us With Your Friends</p>
+                <LinkIcon id="i#3" name="https://react-wordle-helper.netlify.app/" className="footer-icon"/>
             </div>
 
             <ToastContainer
