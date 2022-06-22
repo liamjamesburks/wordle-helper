@@ -56,9 +56,9 @@ const Footer = () => {
             </div>
 
             <span className="line" />
-            <div id="https://react-wordle-helper.netlify.app/" className="footer-item-container" onClick={copyToClipboard}>
+            <div id="https://wordle-helper-app.netlify.app/" className="footer-item-container" onClick={copyToClipboard}>
                 <p id="p#3" className="lighter footer-item-detail link">Share Us With Your Friends</p>
-                <LinkIcon id="i#3" name="https://react-wordle-helper.netlify.app/" className="footer-icon"/>
+                <LinkIcon id="i#3" name="https://wordle-helper-app.netlify.app/" className="footer-icon"/>
             </div>
 
             <ToastContainer
