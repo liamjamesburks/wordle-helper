@@ -3,7 +3,7 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
 
-        padding: 1rem;
+        padding: 0.4rem;
 
         width: 100%;
 
@@ -44,13 +44,15 @@
     align-self: center;
     justify-self: center;
 
+    text-align: left;
+
     width: 100%;
-    max-width: 30rem;
+    max-width: 19rem;
 
     border: 1px solid var(--card-border);
     border-radius: var(--radius);
 
-    padding: 1.5rem 2rem 1.5rem 1rem;
+    padding: 1.5rem 1rem;
 }
 
 @media only screen and (min-width: 800px) {
@@ -72,8 +74,8 @@
 }
 
 .index-display {
-    width: 1rem;
-    height: 1rem;
+    width: 0.8rem;
+    height: 0.8rem;
 
     background-color: var(--card-background);
     border: 1px solid var(--foreground);
