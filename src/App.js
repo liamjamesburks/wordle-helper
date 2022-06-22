@@ -188,7 +188,7 @@ function App() {
                         <div className="centred">
                             <FilteredWordList
                                 filteredList={wordListUnused}
-                                title="Information Gain"
+                                title="Unused Letters"
                                 handleSuggestionClick={handleSuggestionClick}
                                 wordLimit={500}
                             />
