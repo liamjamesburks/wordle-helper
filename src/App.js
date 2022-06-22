@@ -12,8 +12,10 @@ import WordInput from "./components/word-input/word-input-component";
 import AlphabetState from "./components/alphabet-state-component/alphabet-state-component";
 import FilteredWordList from "./components/filtered-word-list-component/filtered-word-list-component";
 import GuessHistory from "./components/guess-history-component/guess-history-component";
+import InformationModal from "./components/information-modal/information-modal-component";
 
 import { RefreshIcon } from '@heroicons/react/outline';
+import { LightBulbIcon } from "@heroicons/react/outline";
 
 import './App.css';
 
@@ -29,6 +31,7 @@ function App() {
 
     const [ wordList, setWordList ] = useState(wordListJson['words']);
     const [ wordListUnused, setWordListUnused ] = useState(wordListJson['words']);
+    const [ informationModal, setInformationModal ] = useState(false);
 
     const store = useSelector(selectAlphabetState);
     const alphabetState = store.alphabetState.alphabetState;
@@ -135,43 +138,62 @@ function App() {
     }, [alphabetState]);
 
     return (
-        <div className="app">
-            <div className="generic-container">
-                <h1 className="app-title">
-                    Wordle Helper
-                </h1>
-                <button className="refresh-button" onClick={clearState}>
-                    <RefreshIcon className="refresh-button-icon" />
-                </button>
-            </div>
-
-            <div className="app-content">
-                <div className='app-column'>
-                    <div className="centred">
-                        <WordInput />
-                    </div>
-                    <div className="centred">
-                        <FilteredWordList
-                            filteredList={wordList}
-                            title="Possible Options"
-                            suggestions={suggestions}
-                            handleSuggestionClick={handleSuggestionClick}
-                            wordLimit={200}
-                        />
-                    </div>
+        <div className="full-app-container">
+            {
+                informationModal ? <InformationModal onClick={() => setInformationModal(!informationModal)}/> : ''
+            }
+            <div className="app">
+                <div className="generic-container">
+                    <button className="information-button tooltip"
+                            onClick={() => setInformationModal(!informationModal)}
+                            onKeyDown={() => {
+                                if (informationModal) setInformationModal(!informationModal);
+                            }}
+                    >
+                        <LightBulbIcon className="information-button-icon" />
+                        <span className="tooltiptext">
+                            How to Guide
+                        </span>
+                    </button>
+                    <h1 className="app-title">
+                        Wordle Helper
+                    </h1>
+                    <button className="refresh-button tooltip" onClick={clearState}>
+                        <RefreshIcon className="refresh-button-icon" />
+                        <span className="tooltiptext">
+                        Refresh
+                    </span>
+                    </button>
                 </div>
 
-                <div className='app-column'>
-                    <GuessHistory/>
-                    <div className="centred">
-                        <FilteredWordList
-                            filteredList={wordListUnused}
-                            title="Information Gain"
-                            handleSuggestionClick={handleSuggestionClick}
-                            wordLimit={500}
-                        />
+                <div className="app-content">
+                    <div className='app-column'>
+                        <div className="centred">
+                            <WordInput />
+                        </div>
+                        <div className="centred">
+                            <FilteredWordList
+                                filteredList={wordList}
+                                title="Possible Options"
+                                suggestions={suggestions}
+                                handleSuggestionClick={handleSuggestionClick}
+                                wordLimit={200}
+                            />
+                        </div>
                     </div>
-                    <AlphabetState />
+
+                    <div className='app-column'>
+                        <GuessHistory/>
+                        <div className="centred">
+                            <FilteredWordList
+                                filteredList={wordListUnused}
+                                title="Information Gain"
+                                handleSuggestionClick={handleSuggestionClick}
+                                wordLimit={500}
+                            />
+                        </div>
+                        <AlphabetState />
+                    </div>
                 </div>
             </div>
         </div>

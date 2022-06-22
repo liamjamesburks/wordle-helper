@@ -6,7 +6,20 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  min-width: 320px;
+  background-color: var(--background);
+
+  min-height: 100vh;
+  min-width: 100vw;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  overflow-x: hidden;
+}
+
+.app {
+  position: relative;
 }
 
 code {
