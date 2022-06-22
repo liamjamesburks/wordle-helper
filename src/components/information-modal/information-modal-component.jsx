@@ -43,7 +43,7 @@ const InformationModal = (props) => {
 
                 <div className="step-divider">
                     <h2 className="information-modal-list-decorator"> Step 4 </h2>
-                    <p className="information-modal-step"> You should see your guess added to the list of 'Previous Guesses'. You will also see a list of 'Possible Options', which you can slick on to automatically fill in the word. </p>
+                    <p className="information-modal-step"> You should see your guess added to the list of 'Previous Guesses'. You will also see a list of 'Possible Options', which you can click on to automatically fill in the word. </p>
                 </div>
                 <span className="line"/>
 

@@ -8,8 +8,6 @@ import {useEffect} from "react";
 const FilteredWordList = (props) => {
     const { filteredList, title, wordLimit, suggestions, handleSuggestionClick } = props;
 
-    console.log(filteredList);
-
     const store = useSelector(selectAlphabetState);
     const guessHistory = store.guessHistory.history;
 

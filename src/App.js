@@ -13,6 +13,7 @@ import AlphabetState from "./components/alphabet-state-component/alphabet-state-
 import FilteredWordList from "./components/filtered-word-list-component/filtered-word-list-component";
 import GuessHistory from "./components/guess-history-component/guess-history-component";
 import InformationModal from "./components/information-modal/information-modal-component";
+import Footer from "./components/footer-component/footer-component";
 
 import { RefreshIcon } from '@heroicons/react/outline';
 import { LightBulbIcon } from "@heroicons/react/outline";
@@ -196,6 +197,8 @@ function App() {
                     </div>
                 </div>
             </div>
+
+            <Footer />
         </div>
     );
 }
