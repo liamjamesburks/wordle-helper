@@ -19,7 +19,8 @@
 }
 
 .footer-item-container {
-    min-width: 20rem;
+    min-width: 280px;
+    width: 30%;
 
     display: flex;
     justify-content: space-between;
