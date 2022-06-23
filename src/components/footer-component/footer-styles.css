@@ -4,9 +4,9 @@
     width: 80%;
     min-width: 100vw;
 
-    padding: 1rem 0;
-    margin: 1rem 0;
+    padding: 3rem 0;
 
+    background-color: var(--card-background);
     color: var(--foreground-muted);
 
     bottom: 0;

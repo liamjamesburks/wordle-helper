@@ -88,18 +88,33 @@ const WordInput = () => {
         dispatch(
             changeLetter(
             {
-                    'position': event.target.id,
-                    'letter': event.target.value.toLowerCase()
+                    'position': event.currentTarget.id,
+                    'letter': event.currentTarget.value.toLowerCase()
                 }
             )
         )
 
-        if (((event.target.value) === "") && ((event.target.id) !== "0")) {
-            const nextInput = Number(event.target.id)-1;
-            document.getElementById(String(nextInput)).focus();
+        /*
+        If user deleted a letter, and no letters after the current letter are populated
+         */
+        if (
+            ((event.currentTarget.value) === "") &&
+            ((event.currentTarget.id) !== "0")
+        ) {
+            console.log(event.currentTarget.id);
+            let isLetterAfterEmpty = true;
+            for (let x=Number(event.currentTarget.id)+1; x<5; x++) {
+                if (wordInputState[x].letter !== "") {
+                    isLetterAfterEmpty = false;
+                }
+            }
+            if (isLetterAfterEmpty || event.currentTarget.id === "4") {
+                const nextInput = Number(event.currentTarget.id)-1;
+                document.getElementById(String(nextInput)).focus();
+            }
         }
-        else if ((event.target.id) !== "4" && ((event.target.value) !== "")) {
-            const nextInput = Number(event.target.id)+1;
+        else if ((event.currentTarget.id) !== "4" && ((event.currentTarget.value) !== "")) {
+            const nextInput = Number(event.currentTarget.id)+1;
             document.getElementById(String(nextInput)).focus();
         }
     }
