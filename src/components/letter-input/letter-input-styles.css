@@ -59,7 +59,7 @@
         transition-duration: 0.1s;
     }
     .letter-input-container:active {
-        box-shadow: 1px 1px 2px 0px var(--card-border);
+        box-shadow: 1px 1px 2px 0 var(--card-border);
 
         transform: scale(1.2);
         transition-duration: 0.1s;
