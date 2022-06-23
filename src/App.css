@@ -30,14 +30,7 @@
   margin: 0;
   padding: 0;
 }
-p, h1, h2, h3, h4 {
-  margin: 0;
-  padding: 0;
-}
-body {
-  margin: 0;
-  padding: 0;
-}
+
 *::-webkit-scrollbar {
   width: 0.75rem;
   background-color: var(--card-background);
@@ -95,6 +88,39 @@ body {
 
   width: 50%;
   margin: 0 1rem;
+}
+
+.tooltip {
+
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  min-width: 8rem;
+  max-width: 8rem;
+
+  background-color: var(--background);
+  color: var(--foreground);
+  text-align: center;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--card-border);
+
+  font-size: 0.75rem;
+
+  opacity: 90%;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  top: -100%;
+  left: -75%;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
 
 .m-4 {
@@ -262,6 +288,18 @@ body {
     height: 2.2rem;
     width: 2.2rem;
   }
+  .refresh-button:hover {
+    background-color: var(--card-background);
+
+    transform: scale(1);
+    transition: 0.1s;
+  }
+  .refresh-button:active {
+    background-color: var(--card-background-hover);
+
+    transform: scale(1.2);
+    transition: 0.1s;
+  }
 
   .information-button {
     position: absolute;
@@ -270,6 +308,22 @@ body {
 
     height: 2.2rem;
     width: 2.2rem;
+  }
+  .information-button:hover {
+    background-color: var(--card-background);
+
+    transform: scale(1);
+    transition: 0.1s;
+  }
+  .information-button:active {
+    background-color: var(--card-background-hover);
+
+    transform: scale(1.2);
+    transition: 0.1s;
+  }
+
+  .tooltip:hover .tooltiptext {
+    visibility: hidden;
   }
 }
 
@@ -292,37 +346,4 @@ body {
 }
 .hover-bg-red:hover {
   background-color: var(--red-hover);
-}
-
-.tooltip {
-
-}
-
-/* Tooltip text */
-.tooltip .tooltiptext {
-  visibility: hidden;
-  min-width: 8rem;
-  max-width: 8rem;
-
-  background-color: var(--background);
-  color: var(--foreground);
-  text-align: center;
-  padding: 0.5rem 1rem;
-  border-radius: var(--radius);
-  border: 1px solid var(--card-border);
-
-  font-size: 0.75rem;
-
-  opacity: 90%;
-
-  /* Position the tooltip text - see examples below! */
-  position: absolute;
-  top: -100%;
-  left: -75%;
-  z-index: 1;
-}
-
-/* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover .tooltiptext {
-  visibility: visible;
 }

@@ -17,6 +17,9 @@ export const wordInputSlice = createSlice({
     reducers: {
         changeLetter: (state, action) => {
             state['input'][action.payload.position]['letter'] = action.payload.letter;
+            if (!state['input'][action.payload.position]['colour']) {
+                state['input'][action.payload.position]['colour'] = 'red';
+            }
         },
         changeColour: (state, action) => {
             state['input'][action.payload.position]['colour'] = action.payload.colour;

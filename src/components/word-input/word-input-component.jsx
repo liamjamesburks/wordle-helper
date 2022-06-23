@@ -87,7 +87,7 @@ const WordInput = () => {
     const handleLetterChange = (event) => {
         dispatch(
             changeLetter(
-                {
+            {
                     'position': event.target.id,
                     'letter': event.target.value.toLowerCase()
                 }

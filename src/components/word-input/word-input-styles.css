@@ -36,14 +36,12 @@
     transform: scale(1);
     transition: 0.1s;
 }
-
 .action-button:hover {
     background-color: var(--card-background-hover);
 
     transform: scale(1.1);
     transition: 0.1s;
 }
-
 .action-button:disabled {
     background-color: #141328;
     color: #3f3f44;
@@ -55,6 +53,21 @@
     height: 100%;
     width: 1.5rem;
     max-height: 100%;
+}
+
+@media only screen and (max-width: 800px) {
+    .action-button:hover {
+        background-color: var(--card-background);
+
+        transform: scale(1.0);
+        transition: 0.1s;
+    }
+    .action-button:active {
+        background-color: var(--card-background-hover);
+
+        transform: scale(1.2);
+        transition: 0.1s;
+    }
 }
 
 @media only screen and (max-width: 400px) {
