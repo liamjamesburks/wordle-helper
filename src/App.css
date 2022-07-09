@@ -9,17 +9,21 @@
   --card-background: #000051;
   --card-background-hover: #3b3383;
 
-  --green-hover: #aed581;
-  --red-hover: #e57373;
-  --amber-hover: #ffd54f;
-
   --green: #2e7d32;
-  --red: #c62828;
-  --amber: #ff8f00;
-
+  --green-hover: #aed581;
   --dark-green: #0a480d;
-  --dark-red: #6b0f0f;
+
+  /*--red: #c62828;*/
+  /*--red-hover: #e57373;*/
+  /*--dark-red: #6b0f0f;*/
+  --red: #5b5353;
+  --red-hover: #a69595;
+  --dark-red: #2a2626;
+
+  --amber: #ff8f00;
+  --amber-hover: #ffd54f;
   --dark-amber: #734000;
+
 
   --radius: 12px;
 }
